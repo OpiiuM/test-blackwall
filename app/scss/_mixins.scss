@@ -1,0 +1,55 @@
+@mixin font($font_name, $file_name, $weight, $style) {
+	@font-face {
+		font-family: $font_name;
+		font-display: swap;
+		src: url("../fonts/#{$file_name}.woff") format("woff"), url("../fonts/#{$file_name}.woff2") format("woff2");
+		font-weight: #{$weight};
+		font-style: #{$style};
+	}
+}
+
+@mixin fontInterRegular {
+    font-family: "Inter", sans-serif;
+	font-weight: 400;
+}
+
+@mixin fontInterMedium {
+    font-family: "Inter", sans-serif;
+	font-weight: 500;
+}
+
+@mixin fontInterSemiBold {
+    font-family: "Inter", sans-serif;
+	font-weight: 600;
+}
+
+@mixin fontInterBold {
+    font-family: "Inter", sans-serif;
+	font-weight: 700;
+}
+
+@mixin adaptFont($pcSize, $mobSize, $maxSize) {
+	$addSize: $pcSize - $mobSize;
+	@if $maxSize==1 {
+		font-size: $pcSize + px;
+
+		@media (max-width: #{1170 + px}) {
+			font-size: calc(#{$mobSize + px} + #{$addSize} * ((100vw - 320px) / #{1400 - 320}));
+		}
+	} @else {
+		font-size: calc(#{$mobSize + px} + #{$addSize} * ((100vw - 320px) / #{1400 - 320}));
+	}
+}
+
+@mixin adaptLh($pcSize, $mobSize, $maxSize) {
+	$addSize: $pcSize - $mobSize;
+	@if $maxSize==1 {
+		line-height: $pcSize + px;
+
+		@media (max-width: #{1170 + px}) {
+			line-height: calc(#{$mobSize + px} + #{$addSize} * ((100vw - 320px) / #{1400 - 320}));
+		}
+	} @else {
+		line-height: calc(#{$mobSize + px} + #{$addSize} * ((100vw - 320px) / #{1400 - 320}));
+	}
+}

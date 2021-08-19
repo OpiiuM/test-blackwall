@@ -1,0 +1,45 @@
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+header,
+section,
+article,
+footer {
+	width: 100%;
+}
+
+img {
+	object-fit: cover;
+}
+
+button {
+	cursor: pointer;
+}
+
+ul {
+	padding: 0;
+	margin: 0;
+	list-style: none;
+}
+
+li {
+	list-style: none;
+}
+
+a {
+	text-decoration: none;
+}
+
+._container {
+	max-width: 1170px;
+	width: 100%;
+	margin: 0 auto;
+	padding: 0 10px;
+
+	&--fluid {
+		max-width: 1400px;
+	}
+}

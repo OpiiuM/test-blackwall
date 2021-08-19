@@ -1,0 +1,96 @@
+html {
+	font-size: 14px;
+}
+
+body {
+
+	&._lock {
+		overflow: hidden;
+	}
+}
+
+input:focus,
+button:focus {
+	outline: none;
+}
+
+section {
+	@media (min-width: $screen-md-min) {
+		padding: 40px 0;
+	}
+
+	@media (max-width: $screen-sm-max) {
+		padding: 0 0 40px 0;
+	}
+}
+
+.burger {
+	width: 30px;
+	height: 30px;
+	position: relative;
+	cursor: pointer;
+	z-index: 6;
+
+	@media (min-width: $screen-md-min) {
+		display: none;
+	}
+
+	&__line {
+		width: 100%;
+		height: 5px;
+		position: absolute;
+		left: 0;
+		display: block;
+		background-color: $maincolor;
+		transition: .3s all linear;
+	}
+
+	&__line--first {
+		top: 0;
+	}
+
+	&__line--second,
+	&__line--third {
+		top: 50%;
+		transform: translateY(-50%);
+	}
+
+	&__line--fourth {
+		bottom: 0;
+	}
+
+	&--active &__line--first,
+	&--active &__line--fourth {
+		opacity: 0;
+	}
+
+	&--active &__line--second {
+		transform: translateY(-50%) rotate(45deg);
+	}
+
+	&--active &__line--third {
+		transform: translateY(-50%) rotate(-45deg);
+	}
+}
+
+.header__nav.active {
+	left: 0;
+}
+
+.btn {
+	padding: 1em 1.6em;
+	@include fontInterSemiBold;
+	border-radius: 6px;
+	border: none;
+	transition: .3s ease;
+}
+
+.title {
+	@include fontInterSemiBold;
+	color: $blue;
+}
+
+.subtitle {
+	@include fontInterRegular;
+	color: $blue;
+}
